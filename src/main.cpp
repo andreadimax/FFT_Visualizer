@@ -76,7 +76,7 @@ void normalize(complex<double> *result,double *final, int N, ofstream *file_out)
 
     for(i=0;i<N;i++){
         final[i] = final[i] / segment;
-        *file_out << final[i] << endl;;
+        *file_out << final[i] << endl;
     }
 }
 
@@ -97,12 +97,11 @@ void plot(int N){
     while(true){
         if(!do_exit){
 
-
             for(i=0;i<N;i++){
                 samps[i] = complex<double>(samples[i],0);
             }
 
-            result = FFT(samps,N);
+            FFT(samps,result,N);
 
             file_out.clear();
             file_out.seekp(0);

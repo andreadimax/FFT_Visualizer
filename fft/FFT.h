@@ -1,8 +1,8 @@
 /*
 
-Document    : FFT.f
+Document    : FFT.h
 Language    : C++
-Last modify : 18/08/20
+Last modify : 24/09/20
 @author     : Andrea Di Mauro
 Description : This is my very first project: I wrote an FFT algorithm
               using only my university knowledge.
@@ -130,13 +130,13 @@ void thread_4(complex<double> *Xdd, complex<double> *wn3, complex<double> *sampl
 
 /* --------- FFT --------- */
 
-complex<double> *FFT(complex<double> *samples, int N){
+void FFT(complex<double> *samples, complex<double> *result, int N){
 
     if((N % 2 != 0) || (N % 4 != 0) || (N % 6 != 0)){
         cerr << "Error: total number of samples must be divisible per 2,4 and 6" << endl;
     }
 
-    complex<double> *result = new complex<double>[N];
+    //complex<double> *result = new complex<double>[N];
     complex<double> *result1 = new complex<double>[N];
     complex<double> *result2 = new complex<double>[N];
     complex<double> *result3 = new complex<double>[N];
@@ -167,8 +167,20 @@ complex<double> *FFT(complex<double> *samples, int N){
     //     cout<<to_string(count+1) + " - ";
     //     print_complex(&result[count]);
     // }
+
+    delete result1;
+    delete result2;
+    delete result3;
+    delete result4;
+    delete wn2;
+    delete wn1;
+    delete wn3;
+    delete Xpp;
+    delete Xpd;
+    delete Xdp;
+    delete Xdd;
    
-    return result;
+    return;
 }
 
 #endif
